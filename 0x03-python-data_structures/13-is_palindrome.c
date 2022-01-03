@@ -1,42 +1,32 @@
 #include "lists.h"
 /**
  * is_palindrome - checks if a linked list is a palindrome
- * @head: double pointer to the linked list
+ * @head: double pointer of the linked list
  *
  * Return: 1 if it is, 0 if not
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *first_node = *head;
-	listint_t *last_node = *head;
-	listint_t *carry_node = NULL;
-	int i = 0, count = 0;
-
-	if (*head == NULL || (*head)->next == NULL)
+	if (head == NULL || *head == NULL)
 		return (1);
-	while (last_node->next != NULL)
+	return (checker(head, *head));
+}
+
+/**
+ * checker - function to check if the list is palindrome
+ * @head: double pointer of the linked list
+ * @last: ptr to the end of the list
+ *
+ * Return: 1 if it is, 0 if not
+ */
+int checker(listint_t **head, listint_t *last)
+{
+	if (last == NULL)
+		return (1);
+	if (checker(head, last->next) && (*head)->n == last->n)
 	{
-		last_node = last_node->next;
-		count += 1;
+		*head = (*head)->next;
+		return (1);
 	}
-	if (count % 2 != 0)
-	{
-		count -= 1;
-	}
-	while (i < count / 2)
-	{
-		if (first_node->n != last_node->n)
-		{
-			return (0);
-		}
-		first_node = first_node->next;
-		carry_node = first_node;
-		while (carry_node->next != last_node)
-		{
-			carry_node = carry_node->next;
-		}
-		last_node = carry_node;
-		i++;
-	}
-	return (1);
+	return (0);
 }
