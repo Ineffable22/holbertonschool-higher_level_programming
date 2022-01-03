@@ -7,36 +7,36 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp1 = *head, *tmp2 = *head;
-	int i = 1, j = 0, k = 0, l = 1;
+	listint_t *first_node = *head;
+	listint_t *last_node = *head;
+	listint_t *carry_node = NULL;
+	int i = 0, count = 0;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (tmp1->next)
+	while (last_node->next != NULL)
 	{
-		tmp1 = tmp1->next;
-		i++;
+		last_node = last_node->next;
+		count += 1;
 	}
-	tmp1 = *head;
-	if (i % 2 == 0)
-		k = i;
-	else
-		k = i + 1;
-	j = i;
-	while (i >= k / 2)
+	if (count % 2 != 0)
 	{
-		while (j > l)
+		count -= 1;
+	}
+	while (i < count / 2)
+	{
+		if (first_node->n != last_node->n)
 		{
-			tmp1 = tmp1->next;
-			j--;
-		}
-		if (tmp1->n != tmp2->n)
 			return (0);
-		i--;
-		j = i;
-		l++;
-		tmp2 = tmp2->next;
-		tmp1 = tmp2;
+		}
+		first_node = first_node->next;
+		carry_node = first_node;
+		while (carry_node->next != last_node)
+		{
+			carry_node = carry_node->next;
+		}
+		last_node = carry_node;
+		i++;
 	}
 	return (1);
 }
