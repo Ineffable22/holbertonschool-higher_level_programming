@@ -5,8 +5,8 @@
 class Node:
     """Defines a node of a singly linked list"""
     def __init__(self, data, next_node=None):
-        self.__data = data
-        self.__next_node = next_node
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):
@@ -41,7 +41,7 @@ class SinglyLinkedList:
     """Defines a singly linked list"""
     def __init__(self):
         """Initilizes the data"""
-        self.head = None
+        self.__head = None
 
     def sorted_insert(self, value):
         """Inserts a new Node into the correct sorted position
@@ -66,9 +66,10 @@ class SinglyLinkedList:
     def __str__(self):
         """Return a string with singly linked list"""
         value = ""
-        while self.head:
-            value += str(self.head.data)
-            self.head = self.head.next_node
-            if self.head:
+        tmp = self.__head
+        while tmp:
+            value += str(tmp.data)
+            tmp = tmp.next_node
+            if tmp:
                 value += '\n'
         return value
