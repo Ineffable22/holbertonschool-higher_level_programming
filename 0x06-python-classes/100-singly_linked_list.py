@@ -48,21 +48,16 @@ class SinglyLinkedList:
         """Inserts a new Node into the correct sorted position
         in the list (increasing order)
         """
-        node = Node(value)
-        tmp = self.__head
-        current = tmp
-        if not self.__head or tmp.data > value:
-            node.next_node = self.__head
-            self.__head = node
+        new_node = Node(value)
+        if not self.__head or self.__head.data >= value:
+            new_node.next_node = self.__head
+            self.__head = new_node
         else:
-            while current.data < value:
-                if current.next_node is None:
-                    current.next_node = node
-                    return
-                tmp = current
-                current = current.next_node
-            node.next_node = current
-            tmp.next_node = node
+            tmp = self.__head
+            while (tmp.next_node and ((tmp.next_node).data < value)):
+                tmp = tmp.next_node
+            new_node.next_node = tmp.next_node
+            tmp.next_node = new_node
 
     def __str__(self):
         """Return a string with singly linked list"""
