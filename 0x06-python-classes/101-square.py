@@ -17,8 +17,8 @@ class Square:
     """
     def __init__(self, size=0, position=(0, 0)):
         """Initilizes the data"""
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -71,9 +71,9 @@ class Square:
         else:
             for i in range(self.position[1]):
                 _str += "\n"
-            for j in range(0, self.__size):
-                _str += " " * self.__position[0]
-                _str += "#" * self.__size
-                if j != (self.__size - 1):
+            for j in range(0, self.size):
+                _str += " " * self.position[0]
+                _str += "#" * self.size
+                if j != (self.size - 1):
                     _str += '\n'
         return _str
