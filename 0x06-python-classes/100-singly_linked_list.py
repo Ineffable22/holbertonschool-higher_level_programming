@@ -18,7 +18,7 @@ class Node:
         """Sets the data to a value."""
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
-        self.__data = data
+        self.__data = value
 
     @property
     def next_node(self):
@@ -48,11 +48,11 @@ class SinglyLinkedList:
         in the list (increasing order)
         """
         node = Node(value)
-        tmp = self.head
+        tmp = self.__head
         current = tmp
-        if self.head is None or tmp.data > value:
-            node.next_node = self.head
-            self.head = node
+        if self.__head is None or tmp.data > value:
+            node.next_node = self.__head
+            self.__head = node
         else:
             while current.data < value:
                 if current.next_node is None:
