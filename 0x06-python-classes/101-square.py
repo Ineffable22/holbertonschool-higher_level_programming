@@ -55,7 +55,7 @@ class Square:
         at the position given by the position attribute.
         """
         if self.__size == 0:
-            print("")
+            print()
         else:
             for i in range(self.position[1]):
                 print()
@@ -67,7 +67,7 @@ class Square:
         """Return a string with square to stdout"""
         _str = ""
         if self.__size == 0:
-            print("")
+            return _str
         else:
             for i in range(self.position[1]):
                 _str += "\n"
