@@ -51,7 +51,7 @@ class SinglyLinkedList:
         node = Node(value)
         tmp = self.__head
         current = tmp
-        if self.__head is None or tmp.data > value:
+        if not self.__head or tmp.data > value:
             node.next_node = self.__head
             self.__head = node
         else:
