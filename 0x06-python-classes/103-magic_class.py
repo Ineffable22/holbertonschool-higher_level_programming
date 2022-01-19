@@ -1,10 +1,10 @@
 #!/usr/bin/python3
+"""Class MagicClass"""
 import math
 
 
 class MagicClass:
-    """Class MagicClass
-    """
+    """Defines MagicClass"""
     def __init__(self, radius):
         """Initializes Data"""
         self.__radius = 0
