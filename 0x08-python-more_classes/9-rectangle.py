@@ -53,11 +53,11 @@ class Rectangle:
 
     def __str__(self):
         """Return a string with rectangle to stdout"""
-        _str = ""
-        if self.height == 0 or self.width == 0:
+        if self.__height == 0 or self.__width == 0:
             return ''
-        for i in range(self.height):
-            _str += str(self.print_symbol) * self.width
+        _str = ""
+        for i in range(self.__height):
+            _str += str(self.print_symbol) * self.__width
             if self.height != i + 1:
                 _str += '\n'
         return _str
@@ -77,7 +77,7 @@ class Rectangle:
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
-            raise ValueError("rect_2 must be an instance of Rectangle")
+            raise TypeError("rect_2 must be an instance of Rectangle")
         if Rectangle.area(rect_1) >= Rectangle.area(rect_2):
             return (rect_1)
         return (rect_2)
