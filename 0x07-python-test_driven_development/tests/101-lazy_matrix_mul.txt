@@ -1,0 +1,66 @@
+================================
+|  Lazy matrix multiplication  |
+================================
+
+File ``101-lazy_matrix_mul.py``
+
+Import the function:
+
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+Test:
+
+    >>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+    [[ 7 10]
+     [15 22]]
+
+    >>> print(lazy_matrix_mul([[1, 2]], [[3.0, 4], [5, 6.0]]))
+    [[13. 16.]]
+
+    >>> print(lazy_matrix_mul([[1, -2], [-5, 6]], [[2, 3], [4, -7]]))
+    [[ -6  17]
+     [ 14 -57]]
+
+    >>> print(lazy_matrix_mul([[1, 2]], 9))
+    Traceback (most recent call last):
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+    >>> print(lazy_matrix_mul("Hello", [[1, 2]]))
+    Traceback (most recent call last):
+    ValueError: Scalar operands are not allowed, use '*' instead
+
+    >>> print(lazy_matrix_mul(["Betty", "Holberton"], [[1, 2]]))
+    Traceback (most recent call last):
+    ValueError: shapes (2,) and (1,2) not aligned: 2 (dim 0) != 1 (dim 0)
+
+    >>> print(lazy_matrix_mul([[1, 2]], ["Betty", "Holberton"]))
+    Traceback (most recent call last):
+    TypeError: invalid data type for einsum
+
+    >>> print(lazy_matrix_mul([], [[9, 4]]))
+    Traceback (most recent call last):
+    ValueError: shapes (0,) and (1,2) not aligned: 0 (dim 0) != 1 (dim 0)
+
+    >>> print(lazy_matrix_mul([[9, 4]], [[]]))
+    Traceback (most recent call last):
+    ValueError: shapes (1,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
+
+    >>> print(lazy_matrix_mul([[1, 2], ["Hello", 9]], [[9, 4], [2, 5]]))
+    Traceback (most recent call last):
+    TypeError: invalid data type for einsum
+
+    >>> print(lazy_matrix_mul([[9, 4], [2, 5]], [[1, 2], ["Hello", 9]]))
+    Traceback (most recent call last):
+    TypeError: invalid data type for einsum
+
+    >>> print(lazy_matrix_mul([[9, 4], [2]], [[1, 2], [4, 9]]))
+    Traceback (most recent call last):
+    ValueError: setting an array element with a sequence.
+
+    >>> print(lazy_matrix_mul([[9, 4], [2, 7.0]], [[1], [4, 9]]))
+    Traceback (most recent call last):
+    ValueError: setting an array element with a sequence.
+
+    >>> print(lazy_matrix_mul([[9, 4, 4], [2, 8, 2]], [[1, 2], [4, 9]]))
+    Traceback (most recent call last):
+    ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
