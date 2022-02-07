@@ -98,7 +98,7 @@ class Rectangle(Base):
                 setattr(self, (list(self.__dict__.keys()))[i], args[i])
         elif kwargs is not None:
             for key in kwargs:
-                 if hasattr(self, key) is True:
+                if hasattr(self, key) is True:
                     setattr(self, key, kwargs[key])
 
     def to_dictionary(self):

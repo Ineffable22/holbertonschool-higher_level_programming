@@ -3,6 +3,7 @@
 import json
 import csv
 
+
 class Base:
     """Manages id attribute in all classes"""
     __nb_objects = 0
@@ -53,8 +54,9 @@ class Base:
     def load_from_file(cls):
         """Returns a list of instances"""
         try:
-            with open(cls.__name__ + ".json", "r", encoding="utf-8") as fo:
-                return [(cls.create(**d)) for d in cls.from_json_string(fo.read())]
+            with open(cls.__name__ + ".json", "r", encoding="utf-8")as fo:
+                return [(cls.create(**d))
+                        for d in cls.from_json_string(fo.read())]
         except:
             return []
 
@@ -73,6 +75,7 @@ class Base:
         """Returns a list of instances"""
         try:
             with open(cls.__name__ + ".csv", "r", encoding="utf-8") as fo:
-                return [(cls.create(**d)) for d in cls.from_json_string(fo.read())]
+                return [(cls.create(**d))
+                        for d in cls.from_json_string(fo.read())]
         except:
             return []
