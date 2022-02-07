@@ -36,8 +36,7 @@ class Square(Rectangle):
                 setattr(self, list(self.__dict__.keys())[i], args[i])
         else:
             for key in kwargs:
-                if hasattr(self, key) is True:
-                    setattr(self, key, kwargs[key])
+                setattr(self, key, kwargs[key])
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Square"""
