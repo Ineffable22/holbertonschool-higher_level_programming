@@ -30,11 +30,10 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Assigns attributes"""
+        keys = ["id", "size", "x", "y"]
         if len(args) > 0:
-            ls = list(self.__dict__.keys())
-            del ls[1]
             for i in range(len(args)):
-                setattr(self, ls[i], args[i])
+                setattr(self, keys[i], args[i])
         else:
             for key in kwargs:
                 if hasattr(self, key) is True:
