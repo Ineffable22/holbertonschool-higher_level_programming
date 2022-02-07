@@ -10,7 +10,6 @@ class Square(Rectangle):
     """Square Class"""
     def __init__(self, size, x=0, y=0, id=None):
         """initialize the data"""
-
         super().__init__(size, size, x, y, id)
 
     @property
@@ -32,8 +31,10 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """Assigns attributes"""
         if len(args) > 0:
+            ls = list(self.__dict__.keys())
+            del ls[1]
             for i in range(len(args)):
-                setattr(self, list(self.__dict__.keys())[i], args[i])
+                setattr(self, ls[i], args[i])
         else:
             for key in kwargs:
                 if hasattr(self, key) is True:
