@@ -29,7 +29,8 @@ class Base:
         if list_objs is None:
             list_objs = "[]"
         else:
-            with open(cls.__name__ + ".json", "w", encoding="utf-8") as fo:
+            filename = cls.__name__ + ".json"
+            with open(filename, "w", encoding="utf-8") as fo:
                 fo.write(cls.to_json_string([d.to_dictionary()
                                              for d in list_objs]))
 
