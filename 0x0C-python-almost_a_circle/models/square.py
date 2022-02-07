@@ -31,12 +31,13 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Assigns attributes"""
-        if args is not None and len(args) != 0:
+        if len(args) > 0:
             for i in range(len(args)):
                 setattr(self, list(self.__dict__.keys())[i], args[i])
         else:
             for key in kwargs:
-                setattr(self, key, kwargs[key])
+                if hasattr(self, key) is True:
+                    setattr(self, key, kwargs[key])
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Square"""
