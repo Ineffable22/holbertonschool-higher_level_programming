@@ -255,17 +255,6 @@ class Test_Update(unittest.TestCase):
         self.assertEqual(r1.x, 400)
         self.assertEqual(r1.y, 500)
 
-    def test_more_than_5_args(self):
-        """pass more of 5 args to update function"""
-        self.set_nb_to_zero()
-        r1 = Rectangle(2, 1, 10, 0)
-        r1.update(100, 200, 300, 400, 500, 600, 700, 800)
-        self.assertEqual(r1.id, 100)
-        self.assertEqual(r1.width, 200)
-        self.assertEqual(r1.height, 300)
-        self.assertEqual(r1.x, 400)
-        self.assertEqual(r1.y, 500)
-
     def test_id_kwargs(self):
         """pass id kwargs to function"""
         self.set_nb_to_zero()
@@ -339,66 +328,6 @@ class Test_Update(unittest.TestCase):
         string3 = "'Rectangle' object has no attribute 'other'"
         with self.assertRaisesRegex(AttributeError, string3):
             self.assertEqual(r1.other, 'random')
-
-    def test_1_args_invalid(self):
-        """pass 1 invalid arg to update function"""
-        self.set_nb_to_zero()
-        r1 = Rectangle(2, 1, 10, 0)
-
-        # pass negative int
-        with self.assertRaisesRegex(ValueError, 'width must be > 0'):
-            r1.update(100, -23)
-
-        # pass str
-        with self.assertRaisesRegex(TypeError, 'width must be an integer'):
-            r1.update(321, 'randval')
-
-        # pass float to update height
-        with self.assertRaisesRegex(TypeError, 'height must be an integer'):
-            r1.update(28, 3, 23.43, 342)
-
-    def test_args_as_iterable_obj(self):
-        """pass iterable args to update function"""
-        self.set_nb_to_zero()
-        r1 = Rectangle(2, 1, 10, 0)
-
-        # pass list to update
-        with self.assertRaisesRegex(TypeError, 'width must be an integer'):
-            ls = [1, 2, 3]
-            r1.update(2, ls)
-
-        # pass tuple to update
-        with self.assertRaisesRegex(TypeError, 'width must be an integer'):
-            ls = (1, 2, 3)
-            r1.update(2, ls)
-
-        # pass set to update
-        with self.assertRaisesRegex(TypeError, 'width must be an integer'):
-            ls = {1, 2, 3}
-            r1.update(2, ls)
-
-        # pass dict to update
-        with self.assertRaisesRegex(TypeError, 'width must be an integer'):
-            ls = {'width': 1, 'x': 2, 'y': 3}
-            r1.update(2, ls)
-
-    def test_args_invalid(self):
-        """pass 2 args to update function"""
-        self.set_nb_to_zero()
-        r1 = Rectangle(2, 1, 10, 0)
-        with self.assertRaisesRegex(ValueError, 'height must be > 0'):
-            r1.update(100, 200, -43)
-        with self.assertRaisesRegex(ValueError, 'y must be >= 0'):
-            r1.update(100, 200, 903, 23, -43)
-
-        # invalid last arg passes because is not taken into account
-        r1.update(100, 200, 903, 23, 345, 49, -43)
-        self.assertEqual(r1.id, 100)
-        self.assertEqual(r1.width, 200)
-        self.assertEqual(r1.height, 903)
-        self.assertEqual(r1.x, 23)
-        self.assertEqual(r1.y, 345)
-
 
 class Test_Dictionary_Representation(unittest.TestCase):
     """Test case class for update function"""
