@@ -47,8 +47,14 @@ class Rectangle:
             return 0
         return (self.width + self.height) * 2
 
-    def __str__(self):
+    def __repr__(self):
         """Return a string with rectangle to stdout"""
+        return ("\n".join([("#" * self.__width) for i in range(self.__height)]))
+
+
+
+
+        """
         _str = ""
         if self.height == 0 or self.width == 0:
             return ''
@@ -57,3 +63,4 @@ class Rectangle:
             if self.height != i + 1:
                 _str += '\n'
         return _str
+        """

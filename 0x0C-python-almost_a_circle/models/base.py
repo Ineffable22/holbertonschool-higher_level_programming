@@ -2,7 +2,7 @@
 """Base Class"""
 import json
 import csv
-
+import turtle
 
 class Base:
     """Manages id attribute in all classes"""
@@ -78,3 +78,6 @@ class Base:
                         for d in cls.from_json_string(fo.read())]
         except:
             return []
+
+    def draw(list_rectangles, list_squares):
+        turtle = bgcolor('black')
