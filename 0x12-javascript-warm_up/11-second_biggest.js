@@ -1,3 +1,4 @@
 #!/usr/bin/node
 const num = process.argv.sort();
-console.log(num[process.argv.length - 2]);
+if (isNaN(num)) console.log('0');
+else console.log(num[process.argv.length - 2]);
