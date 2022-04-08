@@ -13,7 +13,7 @@ if __name__ == '__main__':
         """
         SELECT id,
         name,
-        (SELECT name from states where state_id=id)
+        (SELECT name FROM states WHERE state_id=id)
         FROM cities ORDER BY id
         """
     )
