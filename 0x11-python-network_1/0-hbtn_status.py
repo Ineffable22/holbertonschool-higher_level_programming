@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# This script fetches https://intranet.hbtn.io/status
+""" This script fetches https://intranet.hbtn.io/status """
 import urllib.request
 if __name__ == "__main__":
     URL = 'https://intranet.hbtn.io/status'
