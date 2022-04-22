@@ -5,8 +5,7 @@ if __name__ == "__main__":
     URL = 'https://intranet.hbtn.io/status'
     with urllib.request.urlopen(URL) as response:
         html = response.read()
-
-        print("""Body response:
-\t- type: {}
-\t- content: {}
-\t- utf8 content: {}""".format(type(html), html, response.msg))
+        print('Body response:')
+        print('\t- type: {}'.format(type(html)))
+        print('\t- content: {}'.format(html))
+        print('\t- utf8 content: {}'.format(response.msg))
