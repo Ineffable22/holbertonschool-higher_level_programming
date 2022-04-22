@@ -5,10 +5,14 @@ and displays the body of the response (decoded in utf-8)"""
 
 if __name__ == "__main__":
     import urllib.request
+    import urllib.parse
     import sys
 
     url = sys.argv[1]
     email = sys.argv[2]
-    value = {'email': email}
-    with urllib.request.urlopen(url, data) as response:
+    values = {'email': email}
+    data = urllib.parse.urlencode(values)
+    data = data.encode('ascii')
+    req = urllib.request.Request(url, data)
+    with urllib.request.urlopen(req) as response:
         print(response.read().decode('utf-8'))
