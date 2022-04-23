@@ -13,6 +13,6 @@ if __name__ == "__main__":
         if _dict == {}:
             print('No result')
         else:
-            print("[{}] {}".format(_dic.get('id'), _dic.get('name')))
+            print("[{}] {}".format(_dict.get('id'), _dict.get('name')))
     except ValueError:
         print('Not a valid JSON')
