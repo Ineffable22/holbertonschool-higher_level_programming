@@ -6,7 +6,7 @@ if __name__ == "__main__":
     from sys import argv
 
     url = argv[1]
-    request = request.get(url)
+    request = requests.get(url)
     if request.status_code >= 400:
         print("Error code: {}".format(request.status_code))
     else:
