@@ -4,7 +4,7 @@ sends a request to the URL and displays the body
 of the response (decoded in utf-8)."""
 if __name__ == "__main__":
     import urllib.request
-    import urllib.error import HTTPError
+    from urllib.error import HTTPError
     import sys
 
     try:
