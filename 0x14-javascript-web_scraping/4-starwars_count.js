@@ -8,12 +8,12 @@ let total = 0;
 axios.get(process.argv[2])
   .then(res => {
     const films = res.data.results ? res.data.results : [];
-    const size = films.length ? films.length : 0;
+    const size = films.length;
     for (let i = 0; i < size; i++) {
       if (films[i].characters.includes(ID) === true) total++;
     }
     console.log(total);
   })
   .catch(err => {
-    console.log(err);
+    console.log('error:', error);
   });
