@@ -15,5 +15,5 @@ axios.get(process.argv[2])
     console.log(total);
   })
   .catch(err => {
-    console.log('error:', error);
+    console.log('error:', err);
   });
