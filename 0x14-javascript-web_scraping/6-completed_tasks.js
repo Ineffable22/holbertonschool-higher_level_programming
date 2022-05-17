@@ -13,4 +13,7 @@ axios.get(process.argv[2])
       ss = data.userId;
     });
     console.log(dict);
+  })
+  .catch(err => {
+    console.log('Error:', err);
   });
