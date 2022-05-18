@@ -3,13 +3,18 @@
 // Display one character name by line in the same order of
 // the list “characters” in the /films/ response
 const axios = require('axios');
-axios.get(`https://swapi-api.hbtn.io/api/films/${process.argv[2]}/`)
-  .then(res => {
-    res.data.characters.forEach(link => {
-      axios.get(link)
-        .then(res => console.log(res.data.name));
-    });
-  })
-  .catch(err => {
-    console.log('Error:', err);
-  });
+
+const getChar = async (url) => {
+  const name = await axios.get(url);
+  return (name.data.name);
+};
+
+const getAll = async (url) => {
+  const response = await axios.get(url);
+  for (const character of response.data.characters) {
+    const newCaracter = await getChar(character);
+    console.log(newCaracter);
+  }
+};
+
+getAll(`https://swapi-api.hbtn.io/api/films/${process.argv[2]}/`);
