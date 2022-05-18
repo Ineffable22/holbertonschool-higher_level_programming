@@ -9,7 +9,11 @@ axios.get(process.argv[2])
     let ss = 1;
     res.data.forEach(data => {
       if (data.userId !== ss) tmp = 1;
-      if (data.completed === true) dict[data.userId] = tmp++;
+      if (data.completed === true) {
+        dict[data.userId] = tmp++;
+      } else {
+        dict[data.userId] = 1;
+      }
       ss = data.userId;
     });
     console.log(dict);
