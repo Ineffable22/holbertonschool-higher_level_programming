@@ -4,19 +4,17 @@ const axios = require('axios');
 
 axios.get(process.argv[2])
   .then(res => {
-    const dict = {};
-    let tmp = 1;
-    let ss = 1;
+    const obj = {};
     res.data.forEach(data => {
-      if (data.userId !== ss) tmp = 1;
       if (data.completed === true) {
-        dict[data.userId] = tmp++;
-      } else {
-        dict[data.userId] = 1;
+        if (obj[data.userId] === undefined) {
+          obj[data.userId] = 1;
+        } else {
+          obj[data.userId]++;
+        }
       }
-      ss = data.userId;
     });
-    console.log(dict);
+    console.log(obj);
   })
   .catch(err => {
     console.log('Error:', err);
